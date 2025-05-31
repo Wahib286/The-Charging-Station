@@ -29,7 +29,7 @@ app.use('/api/stations', stationRoutes);
 
 // Root endpoint
 app.get('/', (req, res) => {
-  res.json({ message: 'Charging Station API is running!' });
+  res.json({ message: 'Charging Station API is running Really!' });
 });
 
 // Error handling middleware
