@@ -14,7 +14,10 @@ const atlasUri = process.env.ATLAS_URI;
 const MONGODB_URI = atlasUri; 
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: 'the-charging-station.vercel.app', 
+  credentials: true  
+}));
 app.use(express.json());
 
 
