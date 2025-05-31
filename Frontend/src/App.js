@@ -1,6 +1,6 @@
 // src/App.js
 
-import React, { useState, useEffect, createContext, useContext } from "react";
+import React, { useState, useEffect, createContext, useContext , useCallback} from "react";
 import {
   MapPin,
   Power,
@@ -743,24 +743,19 @@ const Dashboard = () => {
   const [showFilters, setShowFilters] = useState(false);
 
   // Load stations
-  const loadStations = async () => {
+  const loadStations = useCallback(async () => {
     setLoading(true);
     try {
       const result = await apiService.getStations(token);
-      // If the API returns an array (no "stations" key), use it directly
       if (Array.isArray(result)) {
         setStations(result);
         setFilteredStations(result);
         setError("");
-      }
-      // If your backend eventually wraps it in { stations: [...] }, handle that too:
-      else if (result.stations && Array.isArray(result.stations)) {
+      } else if (result.stations && Array.isArray(result.stations)) {
         setStations(result.stations);
         setFilteredStations(result.stations);
         setError("");
-      }
-      else {
-        // neither an array nor { stations: [...] } → show backend’s error message
+      } else {
         setError(result.message || "Failed to load stations");
       }
     } catch (err) {
@@ -768,15 +763,14 @@ const Dashboard = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [token]);
   
-
   useEffect(() => {
     if (token) {
       loadStations();
     }
-  }, [token]);
-
+  }, [token, loadStations]);
+  
   // Apply filters
   useEffect(() => {
     let filtered = stations;
