@@ -10,23 +10,16 @@ const stationRoutes = require('./routes/stations');
 const app = express();
 
 const atlasUri = process.env.ATLAS_URI;     
-const localUri = process.env.LOCAL_URI;     
-const MONGODB_URI = atlasUri || localUri;   
+    
+const MONGODB_URI = atlasUri; 
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
-// Connect to MongoDB
-if (!MONGODB_URI) {
-  console.error('No MongoDB URI provided! Set ATLAS_URI or LOCAL_URI in .env.');
-  process.exit(1);  // Stop the server
-}
 
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+
+mongoose.connect(MONGODB_URI)
 .then(() => console.log('MongoDB connected successfully'))
 .catch(err => console.error('MongoDB connection error:', err));
 
