@@ -27,7 +27,7 @@ const API_BASE_URL = "https://the-charging-station.onrender.com";
 const apiService = {
   // Auth endpoints
   login: async (credentials) => {
-    const response = await fetch(`${API_BASE_URL}/auth/login`, {
+    const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(credentials),
@@ -36,7 +36,7 @@ const apiService = {
   },
 
   register: async (userData) => {
-    const response = await fetch(`${API_BASE_URL}/auth/register`, {
+    const response = await fetch(`${API_BASE_URL}/api/auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userData),
@@ -47,14 +47,14 @@ const apiService = {
   // Station endpoints
   getStations: async (token, params = {}) => {
     const queryString = new URLSearchParams(params).toString();
-    const response = await fetch(`${API_BASE_URL}/stations?${queryString}`, {
+    const response = await fetch(`${API_BASE_URL}/api/stations?${queryString}`, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return response.json();
   },
 
   createStation: async (token, stationData) => {
-    const response = await fetch(`${API_BASE_URL}/stations/create`, {
+    const response = await fetch(`${API_BASE_URL}/api/stations/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +66,7 @@ const apiService = {
   },
 
   updateStation: async (token, id, stationData) => {
-    const response = await fetch(`${API_BASE_URL}/stations/${id}`, {
+    const response = await fetch(`${API_BASE_URL}/api/stations/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -78,7 +78,7 @@ const apiService = {
   },
 
   deleteStation: async (token, id) => {
-    const response = await fetch(`${API_BASE_URL}/stations/${id}`, {
+    const response = await fetch(`${API_BASE_URL}/api/stations/${id}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
