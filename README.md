@@ -1,6 +1,6 @@
 # Charging Station REST API
 
-A comprehensive REST API for managing EV charging stations with user authentication using Node.js, Express, MongoDB, and JWT.
+To Run Command : npm run dev
 
 ## Features
 
