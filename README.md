@@ -1,4 +1,4 @@
-# Charging Station REST API
+# The Charging Station 
 
 To Run Command : npm run dev
 
