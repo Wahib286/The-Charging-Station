@@ -5,7 +5,7 @@ To Run Command : npm run dev
 ## Features
 
 - **User Authentication**
-  - User registration and login
+  - User registration and login 
   - JWT token-based authentication
   - Protected routes
 
@@ -19,8 +19,9 @@ To Run Command : npm run dev
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
-   cd charging-station-api
+   git clone <https://github.com/Wahib286/The-Charging-Station.git>
+   npm install
+   npm run dev
    ```
 
 2. **Install dependencies**
@@ -33,7 +34,7 @@ To Run Command : npm run dev
    ```
    PORT=5000
    MONGODB_URI=mongodb://localhost:27017/charging-stations
-   JWT_SECRET=your_super_secret_jwt_key_here
+   JWT_SECRET=Wahib
    JWT_EXPIRE=7d
    ```
 
