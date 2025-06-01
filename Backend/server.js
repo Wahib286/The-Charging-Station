@@ -15,7 +15,7 @@ const MONGODB_URI = process.env.ATLAS_URI;
 // === CORS SETUP ===
 // Replace these strings with whatever your real frontend URLs are:
 const allowedOrigins = [
-  'https://the-charging-station-adw4g1osf-wahib286s-projects.vercel.app', // Preview URL
+  'https://the-charging-station-o1q5rvluw-wahib286s-projects.vercel.app', // Preview URL
   'https://the-charging-station.vercel.app',                               // Production URL
   'http://localhost:3000'                                                   // Local dev
 ];
