@@ -1,5 +1,7 @@
 # The Charging Station 
 
+Live Frontend : https://the-charging-station.vercel.app
+Live Backend : https://the-charging-station.onrender.com
 To Run Command : npm run dev
 
 ## Features
